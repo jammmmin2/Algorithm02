@@ -1,0 +1,17 @@
+package org.example.mapper;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class LoginMapper {
+    private static final Map<String, String> users = new HashMap<>();
+
+    static {
+        users.put("admin", "1234");
+        users.put("test", "pass");
+    }
+
+    public String findPasswordById(String userId) {
+        return users.get(userId);
+    }
+}

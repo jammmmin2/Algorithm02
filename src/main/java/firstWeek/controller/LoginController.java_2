@@ -1,0 +1,25 @@
+package firstWeek.controller;
+
+import firstWeek.service.LoginService;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+import java.io.IOException;
+
+@WebServlet("/login")
+public class LoginController extends HttpServlet {
+    private final LoginService loginService = new LoginService();
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String userId = req.getParameter("userId");
+        String password = req.getParameter("password");
+
+        boolean success = loginService.login(userId, password);
+
+        resp.setContentType("text/plain;charset=UTF-8");
+        resp.getWriter().write(success ? "로그인 성공" : "로그인 실패");
+    }
+}
+

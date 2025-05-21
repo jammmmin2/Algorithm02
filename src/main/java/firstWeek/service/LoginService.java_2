@@ -1,0 +1,12 @@
+package firstWeek.service;
+
+import firstWeek.mapper.LoginMapper;
+
+public class LoginService {
+    private final LoginMapper loginMapper = new LoginMapper();
+
+    public boolean login(String userId, String password) {
+        String dbPassword = loginMapper.findPasswordById(userId);
+        return dbPassword != null && dbPassword.equals(password);
+    }
+}
