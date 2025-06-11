@@ -12,14 +12,18 @@ public class Main {
 
         String[] input = br.readLine().split(" ");
         int peopole = Integer.parseInt(input[0]);
-        int kill    = Integer.parseInt(input[1]);
+        int kill    = Integer.parseInt(input[1]); // a몇번째 ㅈㄱ일거야
 
         StringBuilder sb = new StringBuilder();
 
         Queue<Integer> queue = new LinkedList<>();
+        //Queue 가 LinkedList로 되어있음
+        //Queue라는 알고리즘을 뭘로 구현하냐! 그것이 LinkedList로 방식이다
+        //즉, 이 큐는 정수만 다룰 수 있어
+
 
         for(int i = 1; i <= peopole; i++) {
-            queue.offer(i);
+            queue.offer(i); // 1,2,3,4,5,6,7
         }
         sb.append("<");
         while (!queue.isEmpty()) {
