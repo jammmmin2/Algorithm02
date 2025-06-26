@@ -31,14 +31,13 @@ public class MainBy10808 {
 //        });
 
         for (char ch : wordChars) {
-            if (keyValueMap.containsKey(ch)) {
-                keyValueMap.put(ch, 1);
-            }
+            keyValueMap.put(ch, keyValueMap.get(ch) + 1);
         }
 
-        keyValueMap.forEach((k, v) -> {
-            sb.append(v);
-        });
+        // a부터 z까지 순서대로 출력 (공백 포함)
+        for (char ch = 'a'; ch <= 'z'; ch++) {
+            sb.append(keyValueMap.get(ch)).append(" ");
+        }
 
         System.out.println(sb);
     }
